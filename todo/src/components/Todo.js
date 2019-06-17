@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { addTodo } from "../actions";
 
 // import actions here
 
@@ -8,8 +9,27 @@ class Todo extends Component {
     newTodo: ""
   };
 
+  handleChanges = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  addTodo = e => {
+    e.preventDefault();
+    this.props.addTodo(this.state.newTodo);
+    this.setState({ newTodo: "" });
+  };
+
   render() {
-    return <div />;
+    return (
+      <div>
+        <input
+          type="text"
+          name="addTodo"
+          value={this.state.newTodo}
+          onChange={this.handleChanges}
+        />
+      </div>
+    );
   }
 }
 
