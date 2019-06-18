@@ -1,16 +1,20 @@
 import { ADD_TODO } from "../actions/index"; // does this need to be named?
 
 const initalState = {
-  todos: []
+  todos: [{ id: 1, todo: "a task", completed: false }]
 };
 
 export const reducer = (state = initalState, action) => {
-  console.log(action);
+  console.log(state.todos);
   switch (action.type) {
     case ADD_TODO:
+      const newTodo = {
+        id: state.todos[state.todos.length - 1].id + 1,
+        completed: false
+      };
       return {
         ...state,
-        todos: [...state.todos, action.payload]
+        todos: [...state.todos, newTodo]
       };
     default:
       return state;

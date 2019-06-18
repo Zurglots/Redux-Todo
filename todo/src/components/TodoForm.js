@@ -20,16 +20,17 @@ class TodoForm extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <form>
           <input
             type="text"
-            name="addTodo"
+            name="newTodo"
             value={this.state.newTodo}
             onChange={this.handleChanges}
           />
-          <button>Add A Todo!</button>
+          <button onSubmit={this.addTodo}>Add A Todo!</button>
         </form>
       </div>
     );
@@ -38,6 +39,7 @@ class TodoForm extends Component {
 
 // this allows us to pull in state from store and give it to connect()
 const mapStateToProps = state => {
+  console.log(state);
   return {
     todos: state.todos
   };
