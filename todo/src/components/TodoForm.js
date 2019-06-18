@@ -4,7 +4,7 @@ import { addTodo } from "../actions";
 
 // import actions here
 
-class Todo extends Component {
+class TodoForm extends Component {
   state = {
     newTodo: ""
   };
@@ -22,12 +22,15 @@ class Todo extends Component {
   render() {
     return (
       <div>
-        <input
-          type="text"
-          name="addTodo"
-          value={this.state.newTodo}
-          onChange={this.handleChanges}
-        />
+        <form>
+          <input
+            type="text"
+            name="addTodo"
+            value={this.state.newTodo}
+            onChange={this.handleChanges}
+          />
+          <button>Add A Todo!</button>
+        </form>
       </div>
     );
   }
@@ -44,4 +47,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { addTodo }
-)(Todo);
+)(TodoForm);
