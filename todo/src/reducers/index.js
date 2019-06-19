@@ -10,6 +10,7 @@ export const reducer = (state = initalState, action) => {
     case ADD_TODO:
       const newTodo = {
         id: state.todos[state.todos.length - 1].id + 1,
+        todo: action.payload,
         completed: false
       };
       return {
